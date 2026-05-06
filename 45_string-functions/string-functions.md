@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node string-functions.js`
-
-`$ npx ts-node string-functions.ts`
+`$ deno run string-functions.ts`
 
 ##### Results:
 

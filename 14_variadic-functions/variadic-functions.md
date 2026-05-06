@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node variadic-functions.js`
-
-`$ npx ts-node variadic-functions.ts`
+`$ deno run variadic-functions.ts`
 
 ##### Results:
 

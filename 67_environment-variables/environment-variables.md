@@ -1,10 +1,8 @@
-#### The environment variable names printed after the blank line will vary by operating system and user environment. `process.env` in Node.js is the equivalent of `os.Environ()` in Go, providing access to all environment variables as a plain object. Setting `process.env.FOO = "1"` modifies the variable for the current process only, just like Go's `os.Setenv`.
+#### The environment variable names printed after the blank line will vary by operating system and user environment. `Deno.env.get()` reads a variable, `Deno.env.set()` modifies it for the current process, and `Deno.env.toObject()` returns all variables as a plain object — equivalent to Go's `os.Getenv`, `os.Setenv`, and `os.Environ()`.
 ___
 ##### Run Command:
 
-`$ node environment-variables.js`
-
-`$ npx ts-node environment-variables.ts`
+`$ deno run --allow-env environment-variables.ts`
 
 ##### Results:
 

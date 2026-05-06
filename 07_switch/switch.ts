@@ -1,5 +1,5 @@
 const i: number = 2;
-process.stdout.write("write " + i + " as ");
+Deno.stdout.writeSync(new TextEncoder().encode("write " + i + " as "));
 switch (i) {
     case 1: console.log("one"); break;
     case 2: console.log("two"); break;

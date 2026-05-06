@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node hello-world.js`
-
-`$ npx ts-node hello-world.ts`
+`$ deno run hello-world.ts`
 
 ##### Results:
 

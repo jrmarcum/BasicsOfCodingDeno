@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node if-else.js`
-
-`$ npx ts-node if-else.ts`
+`$ deno run if-else.ts`
 
 ##### Results:
 

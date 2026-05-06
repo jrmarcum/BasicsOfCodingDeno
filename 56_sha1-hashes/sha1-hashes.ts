@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+import * as crypto from "node:crypto";
 
 const s: string = "sha1 this string";
 

@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node string-formatting.js`
-
-`$ npx ts-node string-formatting.ts`
+`$ deno run string-formatting.ts`
 
 ##### Results:
 

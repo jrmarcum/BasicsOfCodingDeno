@@ -1,10 +1,8 @@
-#### JavaScript has no built-in subcommand routing. This lesson implements it manually by reading `process.argv[2]` as the subcommand name and parsing the remaining arguments with a custom `parseFlags` function. The `tail` array uses Node.js's inspection format (`[ 'a1', 'a2' ]`) whereas Go prints `[a1 a2]`.
+#### JavaScript has no built-in subcommand routing. This lesson implements it manually by reading `Deno.args[0]` as the subcommand name and parsing the remaining arguments with a custom `parseFlags` function. The `tail` array uses Deno's inspection format (`[ 'a1', 'a2' ]`) whereas Go prints `[a1 a2]`.
 ___
 ##### Run Command:
 
-`$ node command-line-subcommands.js foo -enable -name=joe a1 a2`
-
-`$ npx ts-node command-line-subcommands.ts foo -enable -name=joe a1 a2`
+`$ deno run command-line-subcommands.ts foo -enable -name=joe a1 a2`
 
 ##### Results:
 
@@ -12,13 +10,12 @@ ___
 `  enable: true`
 `  name: joe`
 `  tail: [ 'a1', 'a2' ]`
+
 ___
 
 ##### Run Command:
 
-`$ node command-line-subcommands.js bar -level=8 a1`
-
-`$ npx ts-node command-line-subcommands.ts bar -level=8 a1`
+`$ deno run command-line-subcommands.ts bar -level=8 a1`
 
 ##### Results:
 

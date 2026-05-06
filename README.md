@@ -1,44 +1,35 @@
-# Basics of Coding Node
+# Basics of Coding Deno
 ## Preface
-What this text is and what it is not: This text is intended to introduce the reader to the basics of the JavaScript programming language (running on Node.js) in the sense that they will be able to write minimal types of programs and run the code. It is not intended to go into advanced topics like asynchronous programming, frameworks, bundlers, or advanced software engineering principles.
+What this text is and what it is not: This text is intended to introduce the reader to the basics of the TypeScript programming language (running on Deno) in the sense that they will be able to write minimal types of programs and run the code. It is not intended to go into advanced topics like asynchronous programming, frameworks, or advanced software engineering principles.
 
 The programs are intended to be run in the terminal as that is common to most operating systems. Linux and Mac come preinstalled with a terminal. Windows may or may not have it pre-installed. "Windows Terminal" can be installed from the Microsoft store. Just do a search for it and install it.
-## Installation and Setup of Node.js
-To set up Node.js, navigate to the [Node.js](https://nodejs.org/) website and follow the installation instructions for your operating system. A package manager makes the install process much easier (brew for Mac, chocolatey for Windows, and varies based on Linux distribution). If the language has been installed properly you will be able to type the following command in the terminal command line and receive the response shown:
+## Installation and Setup of Deno
+To set up Deno, navigate to the [Deno](https://deno.com/) website and follow the installation instructions for your operating system. If Deno has been installed properly you will be able to type the following command in the terminal command line and receive the response shown:
 ```
-$ node --version
-v22.x.x
+$ deno --version
+deno x.x.x (release, ...)
 (Note: the version shown here varies with your installed version)
 ```
 ## How to Run Examples
 
-Each lesson folder contains both a `.js` (JavaScript) and a `.ts` (TypeScript) source file, plus a `.md` file showing run commands and expected output.
+Each lesson folder contains a `.ts` (TypeScript) source file and a `.md` file showing the run command and expected output. Deno runs TypeScript natively — no compilation or config files needed.
 
-### JavaScript
-
-No setup required. Navigate into the lesson folder and run with `node`:
+Navigate into the lesson folder and run with `deno run`:
 
 ```
 $ cd 01_hello-world
-$ node hello-world.js
+$ deno run hello-world.ts
 ```
 
-### TypeScript
-
-Install the TypeScript toolchain once from the repository root (requires Node.js):
+Some lessons require permission flags for file, environment, or network access:
 
 ```
-$ npm install
+$ deno run --allow-read --allow-write writing-files.ts
+$ deno run --allow-env environment-variables.ts
+$ deno run --allow-net xml.ts
 ```
 
-Then run any lesson's TypeScript file with `ts-node`:
-
-```
-$ cd 01_hello-world
-$ npx ts-node hello-world.ts
-```
-
-Both produce identical output.
+Each lesson's `.md` file shows the exact command including any required flags.
 
 ## Lessons
 
@@ -65,6 +56,24 @@ Both produce identical output.
 | 19 | methods |
 | 20 | interfaces |
 | 21 | errors |
+| 22 | strings-and-runes |
+| 23 | struct-embedding |
+| 24 | enums |
+| 25 | custom-errors |
+| 26 | generics |
+| 27 | goroutines |
+| 28 | channels |
+| 29 | select |
+| 30 | timeouts |
+| 31 | timers |
+| 32 | tickers |
+| 33 | mutexes |
+| 34 | atomic-counters |
+| 35 | waitgroups |
+| 36 | worker-pools |
+| 37 | rate-limiting |
+| 38 | recover |
+| 39 | logging |
 | 40 | sorting |
 | 41 | sorting-by-functions |
 | 42 | panic |
@@ -93,6 +102,17 @@ Both produce identical output.
 | 65 | command-line-flags |
 | 66 | command-line-subcommands |
 | 67 | environment-variables |
+| 68 | testing-and-benchmarking |
+| 69 | http-client |
+| 70 | http-server |
+| 71 | context |
+| 72 | tcp-server |
+| 73 | text-templates |
+| 74 | execing-processes |
+| 75 | spawning-processes |
+| 76 | signals |
+| 77 | exit |
+| 78 | sha256-hashes |
 
 ## Attribution
 

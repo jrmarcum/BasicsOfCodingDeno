@@ -1,3 +1,5 @@
+import { Buffer } from "node:buffer";
+
 const data: string = "abc123!?$*&()'-=@~";
 
 const sEnc: string = Buffer.from(data).toString("base64");

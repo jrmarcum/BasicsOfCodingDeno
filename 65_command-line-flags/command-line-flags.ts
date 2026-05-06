@@ -8,7 +8,7 @@ interface Flags {
 const flags: Flags = { word: "foo", numb: 42, fork: false, svar: "bar" };
 const tail: string[] = [];
 
-for (const arg of process.argv.slice(2)) {
+for (const arg of Deno.args) {
     if (arg.startsWith("-")) {
         const stripped: string = arg.replace(/^-+/, "");
         const eq: number = stripped.indexOf("=");

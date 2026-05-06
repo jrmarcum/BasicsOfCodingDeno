@@ -1,10 +1,8 @@
-#### Node.js provides base64 encoding via `Buffer`. Standard encoding uses `+` and `/` with `=` padding; URL-safe encoding replaces `+` with `-` and `/` with `_`. The `base64url` encoding is supported natively in Node.js v16+.
+#### Deno provides base64 encoding via `Buffer` from `node:buffer`. Standard encoding uses `+` and `/` with `=` padding; URL-safe encoding replaces `+` with `-` and `/` with `_`. The `base64url` encoding is supported natively.
 ___
 ##### Run Command:
 
-`$ node base64-encoding.js`
-
-`$ npx ts-node base64-encoding.ts`
+`$ deno run base64-encoding.ts`
 
 ##### Results:
 

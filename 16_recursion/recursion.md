@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node recursion.js`
-
-`$ npx ts-node recursion.ts`
+`$ deno run recursion.ts`
 
 ##### Results:
 

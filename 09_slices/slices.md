@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node slices.js`
-
-`$ npx ts-node slices.ts`
+`$ deno run slices.ts`
 
 ##### Results:
 

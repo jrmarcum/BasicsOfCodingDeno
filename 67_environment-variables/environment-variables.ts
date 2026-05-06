@@ -1,8 +1,8 @@
-process.env.FOO = "1";
-console.log("FOO:", process.env.FOO);
-console.log("BAR:", process.env.BAR || "");
+Deno.env.set("FOO", "1");
+console.log("FOO:", Deno.env.get("FOO") ?? "");
+console.log("BAR:", Deno.env.get("BAR") ?? "");
 
 console.log();
-for (const key of Object.keys(process.env as NodeJS.ProcessEnv)) {
+for (const key of Object.keys(Deno.env.toObject())) {
     console.log(key);
 }

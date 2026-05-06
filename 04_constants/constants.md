@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node constants.js`
-
-`$ npx ts-node constants.ts`
+`$ deno run constants.ts`
 
 ##### Results:
 

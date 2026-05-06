@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node errors.js`
-
-`$ npx ts-node errors.ts`
+`$ deno run errors.ts`
 
 ##### Results:
 

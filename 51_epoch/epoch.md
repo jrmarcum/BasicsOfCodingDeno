@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node epoch.js`
-
-`$ npx ts-node epoch.ts`
+`$ deno run epoch.ts`
 
 ##### Results:
 

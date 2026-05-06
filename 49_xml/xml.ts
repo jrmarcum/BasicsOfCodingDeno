@@ -1,4 +1,4 @@
-const xml2js = require("xml2js") as any;
+import xml2js from "npm:xml2js";
 
 interface Plant {
     id: number;

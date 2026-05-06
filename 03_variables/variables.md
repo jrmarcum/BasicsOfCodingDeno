@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node variables.js`
-
-`$ npx ts-node variables.ts`
+`$ deno run variables.ts`
 
 ##### Results:
 

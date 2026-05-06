@@ -1,6 +1,6 @@
-const readline = require("readline");
+import { createInterface } from "node:readline";
 
-const rl = readline.createInterface({
+const rl = createInterface({
     input: process.stdin,
     terminal: false,
 });
@@ -10,6 +10,6 @@ rl.on("line", (line: string): void => {
 });
 
 rl.on("error", (err: Error): void => {
-    process.stderr.write(`error: ${err.message}\n`);
-    process.exit(1);
+    Deno.stderr.writeSync(new TextEncoder().encode(`error: ${err.message}\n`));
+    Deno.exit(1);
 });

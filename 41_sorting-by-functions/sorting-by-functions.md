@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node sorting-by-functions.js`
-
-`$ npx ts-node sorting-by-functions.ts`
+`$ deno run sorting-by-functions.ts`
 
 ##### Results:
 

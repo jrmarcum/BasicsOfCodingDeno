@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node number-parsing.js`
-
-`$ npx ts-node number-parsing.ts`
+`$ deno run number-parsing.ts`
 
 ##### Results:
 

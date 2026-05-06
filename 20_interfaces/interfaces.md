@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node interfaces.js`
-
-`$ npx ts-node interfaces.ts`
+`$ deno run interfaces.ts`
 
 ##### Results:
 

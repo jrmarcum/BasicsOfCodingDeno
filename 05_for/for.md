@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node for.js`
-
-`$ npx ts-node for.ts`
+`$ deno run for.ts`
 
 ##### Results:
 

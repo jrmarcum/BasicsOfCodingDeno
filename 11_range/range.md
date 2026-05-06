@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node range.js`
-
-`$ npx ts-node range.ts`
+`$ deno run range.ts`
 
 ##### Results:
 

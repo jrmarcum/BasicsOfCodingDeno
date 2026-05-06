@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node multiple-return-values.js`
-
-`$ npx ts-node multiple-return-values.ts`
+`$ deno run multiple-return-values.ts`
 
 ##### Results:
 

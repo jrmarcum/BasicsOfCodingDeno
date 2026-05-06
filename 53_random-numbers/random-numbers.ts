@@ -8,22 +8,23 @@ function mulberry32(seed: number): () => number {
     };
 }
 
-process.stdout.write(Math.floor(Math.random() * 100) + ",");
-process.stdout.write("" + Math.floor(Math.random() * 100));
+const enc = new TextEncoder();
+Deno.stdout.writeSync(enc.encode(Math.floor(Math.random() * 100) + ","));
+Deno.stdout.writeSync(enc.encode("" + Math.floor(Math.random() * 100)));
 console.log();
 
 console.log(Math.random());
 
-process.stdout.write((Math.random() * 5 + 5) + ",");
-process.stdout.write("" + (Math.random() * 5 + 5));
+Deno.stdout.writeSync(enc.encode((Math.random() * 5 + 5) + ","));
+Deno.stdout.writeSync(enc.encode("" + (Math.random() * 5 + 5)));
 console.log();
 
 const r1: () => number = mulberry32(42);
-process.stdout.write(Math.floor(r1() * 100) + ",");
-process.stdout.write("" + Math.floor(r1() * 100));
+Deno.stdout.writeSync(enc.encode(Math.floor(r1() * 100) + ","));
+Deno.stdout.writeSync(enc.encode("" + Math.floor(r1() * 100)));
 console.log();
 
 const r2: () => number = mulberry32(42);
-process.stdout.write(Math.floor(r2() * 100) + ",");
-process.stdout.write("" + Math.floor(r2() * 100));
+Deno.stdout.writeSync(enc.encode(Math.floor(r2() * 100) + ","));
+Deno.stdout.writeSync(enc.encode("" + Math.floor(r2() * 100)));
 console.log();

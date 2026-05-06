@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node methods.js`
-
-`$ npx ts-node methods.ts`
+`$ deno run methods.ts`
 
 ##### Results:
 

@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node time.js`
-
-`$ npx ts-node time.ts`
+`$ deno run time.ts`
 
 ##### Results:
 

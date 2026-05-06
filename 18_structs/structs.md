@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node structs.js`
-
-`$ npx ts-node structs.ts`
+`$ deno run structs.ts`
 
 ##### Results:
 

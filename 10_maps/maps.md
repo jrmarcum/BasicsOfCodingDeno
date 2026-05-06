@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node maps.js`
-
-`$ npx ts-node maps.ts`
+`$ deno run maps.ts`
 
 ##### Results:
 

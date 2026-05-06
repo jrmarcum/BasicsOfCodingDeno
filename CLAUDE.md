@@ -1,9 +1,9 @@
-# Basics of Coding Node — Project Context
+# Basics of Coding Deno — Project Context
 
 ## Purpose
 
 Multi-language comparative study of programming syntax, language simplicity,
-lines of code required, and runtime performance. Node.js is one of several
+lines of code required, and runtime performance. Deno is one of several
 languages implemented against the same set of example programs, enabling
 direct side-by-side comparison.
 
@@ -33,18 +33,15 @@ source of truth for program logic and expected output.
 ## Project Structure
 
 ```
-BasicsOfCodingNode/
+BasicsOfCodingDeno/
 ├── CLAUDE.md          — this file; canonical project context for Claude sessions
 ├── LICENSE            — CC0 (applies to Jon Marcum's original contributions)
 ├── NOTICE             — attribution notice for CC BY 3.0 derived content
 ├── README.md          — project overview, attribution section, license table
 ├── upstream/
 │   └── basicsofcodinggo/  — git submodule: BasicsOfCodingGo reference
-├── package.json       — devDependencies: ts-node, typescript, @types/node
-├── tsconfig.json      — TypeScript compiler config (outDir: dist, strict: true)
 └── ##_topic-name/
-    ├── topic-name.js  — JavaScript source (run with node)
-    ├── topic-name.ts  — TypeScript source (run with npx ts-node)
+    ├── topic-name.ts  — TypeScript source (run with deno run)
     └── topic-name.md  — lesson explanation (run commands + expected output)
 ```
 
@@ -59,17 +56,8 @@ The project `.gitignore` covers:
 # Temporary files created by lesson examples (lessons 58-60)
 tmp/
 
-# Node.js toolchain artifacts
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-package-lock.json
-yarn.lock
-
-# Coverage and test output
-coverage/
-.nyc_output/
+# Deno cache
+.deno/
 
 # Environment files
 .env
@@ -80,25 +68,23 @@ coverage/
 Thumbs.db
 ```
 
-- `dist/` is the TypeScript compiler output directory (`tsc` writes here so it
-  does not overwrite the hand-crafted `.js` lesson files). Use `ts-node` to
-  run `.ts` files directly — there is no need to run `tsc`.
 - `tmp/` is the working directory expected by lessons 58 (reading-files),
   59 (writing-files), and 60 (line-filters). It must exist at runtime but
   should not be committed. Lesson 59 creates it automatically.
-- `node_modules/` is created by `npm install` at the repo root (ts-node,
-  typescript, @types/node) and by `npm install xml2js` in lesson 49 (xml).
+- No `node_modules/`, `package.json`, or `tsconfig.json` — Deno handles
+  TypeScript natively with no config files. npm: imports are fetched
+  automatically on first run and cached in Deno's global cache.
 
 ## Language Notes for Future Claude Sessions
 
-- **Runtime:** Node.js only. No Deno, no browser APIs.
-  - JavaScript: `node filename.js`
-  - TypeScript: `npx ts-node filename.ts` (requires `npm install` at repo root first)
-- **Module system:** CommonJS (`require`) in both `.js` and `.ts` files.
-  No `import`/`export` unless unavoidable.
-- **TypeScript setup:** `package.json` at repo root has ts-node, typescript, and
-  @types/node as devDependencies. Run `npm install` once. `tsconfig.json` uses
-  `strict: true`, `module: commonjs`, `outDir: dist`.
+- **Runtime:** Deno only. No Node.js, no browser APIs.
+  - TypeScript: `deno run [flags] filename.ts`
+  - No `.js` files in this project — Deno is TypeScript-first.
+- **Module system:** ES modules (`import`/`export`) throughout.
+  - Node.js built-ins use the `node:` prefix: `import * as fs from "node:fs"`
+  - npm packages use the `npm:` prefix: `import xml2js from "npm:xml2js"`
+  - Deno 2.x supports both prefixes natively; no import maps needed.
+- **No package.json or tsconfig.json** — Deno runs TypeScript directly.
 - **TypeScript conventions used:**
   - Function parameter and return types always explicit
   - `interface` for object shapes (structs, result objects)
@@ -106,9 +92,34 @@ Thumbs.db
   - `Array<() => void>` for typed function arrays (lesson 43)
   - `unknown` for truly-unknown-type parameters (lesson 07 `whatAmI`)
   - `implements InterfaceName` on classes (lesson 20)
-  - `require('xml2js') as any` for the untyped xml2js package (lesson 49)
-- **No external packages** except lesson 49 (xml), which requires
-  `npm install xml2js` run inside `49_xml/`.
+  - `import xml2js from "npm:xml2js"` for the xml2js package (lesson 49)
+- **Permission flags** — add only what the lesson actually needs:
+  - `--allow-read`  — lessons 58, 59, 60, 62, 63
+  - `--allow-write` — lessons 59, 60, 62, 63
+  - `--allow-env`   — lesson 67; also lesson 74 (`Deno.env.toObject()`)
+  - `--allow-net`   — lessons 49 (npm: fetch), 69, 70, 72
+  - `--allow-run`   — lessons 74, 75 (child_process)
+  - Combine when both needed: `deno run --allow-read --allow-write writing-files.ts`
+- **Deno vs Node.js API differences:**
+  - `process.argv` (2-element offset) → `Deno.args` (no offset; `Deno.args[0]`
+    is the first user argument)
+  - `process.env.FOO` → `Deno.env.get("FOO") ?? ""`
+  - `process.env.FOO = "1"` → `Deno.env.set("FOO", "1")`
+  - `Object.keys(process.env)` → `Object.keys(Deno.env.toObject())`
+  - `process.stdout.write(s)` → `Deno.stdout.writeSync(new TextEncoder().encode(s))`
+  - `process.stderr.write(s)` → `Deno.stderr.writeSync(new TextEncoder().encode(s))`
+  - `process.exit(n)` → `Deno.exit(n)`
+  - `process.execPath` → `Deno.execPath()` (lessons 74, 75)
+  - `process.platform === 'win32'` → `Deno.build.os === 'windows'` (lesson 75)
+  - `os.tmpdir()` → `import { tmpdir } from "node:os"` (unchanged)
+  - `Buffer` → `import { Buffer } from "node:buffer"`
+  - `require("crypto")` → `import * as crypto from "node:crypto"`
+  - `require("readline")` → `import { createInterface } from "node:readline"`
+    (node:readline works unchanged under Deno — lesson 60)
+  - `process.on/emit` for signals/exit events → `import process from "node:process"`
+    (lessons 76, 77 — keeps cross-platform signal compat via Deno's Node.js layer)
+- **No external packages** except lesson 49 (xml: `npm:xml2js`) and lesson 68
+  (testing: `jsr:@std/assert`); both fetched automatically on first run.
 - **JavaScript has no pointers** (lesson 17) — implement with object references;
   note the difference from Go's pointer semantics.
 - **JavaScript has no defer** (lesson 43) — simulated with a `deferred` array
@@ -117,17 +128,23 @@ Thumbs.db
 - **JavaScript has no explicit interfaces** (lesson 20) — implement with duck typing.
 - **JavaScript has no structs** (lesson 18) — implement with classes or plain objects.
 - **Go's `fmt.Println` vs `console.log`:** Go uses space-separated `%v` format for
-  structs/arrays (e.g., `[1 2 3]`, `map[k:v]`). Node.js uses its own inspection
-  format (e.g., `[ 1, 2, 3 ]`, `{ k: 'v' }`). Always show actual Node.js output
+  structs/arrays (e.g., `[1 2 3]`, `map[k:v]`). Deno uses its own inspection
+  format (e.g., `[ 1, 2, 3 ]`, `{ k: 'v' }`). Always show actual Deno output
   in the `.md` file.
 - **Map iteration order:** Go maps are non-deterministic. JavaScript plain objects
   and `Map` preserve insertion order. No variability note needed for JS maps.
 - **Variable output lessons** (description at top notes this): 07 (switch — time),
+  32 (tickers — timestamps), 37 (rate-limiting — timestamps), 39 (logging — timestamps),
   42 (panic — stack trace), 50 (time), 51 (epoch), 52 (time-formatting-parsing),
-  53 (random-numbers), 63 (temporary-files-and-directories),
-  67 (environment-variables).
-- **Lessons with setup steps:** 49 (xml — `npm install xml2js`),
-  58 (reading-files — run 59 first), 60 (line-filters — requires stdin piping).
+  53 (random-numbers), 63 (temporary-files-and-directories), 67 (environment-variables),
+  68 (testing-and-benchmarking — timing values), 70 (http-server — user-agent header),
+  74 (execing-processes — deno version), 75 (spawning-processes — deno version).
+- **Lessons with setup steps:** 49 (xml — first run fetches npm:xml2js),
+  58 (reading-files — run 59 first), 60 (line-filters — requires stdin piping),
+  68 (testing — first run fetches jsr:@std/assert).
+- **Lesson 64 (command-line-arguments):** `Deno.args` has no argv[0]/argv[1]
+  prefix. `argsWithProg` and `argsWithoutProg` are both `Deno.args`; the third
+  argument is `Deno.args[2]` (was `process.argv[4]` in Node.js).
 - The root `LICENSE` file is CC0 but does **not** cover the derived content.
   Always refer to NOTICE and README for the full picture.
 
@@ -140,9 +157,7 @@ Each lesson `.md` follows the Go/V reference format:
 ___
 ##### Run Command:
 
-`$ node filename.js`
-
-`$ npx ts-node filename.ts`
+`$ deno run [flags] filename.ts`
 
 ##### Results:
 

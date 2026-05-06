@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node regular-expressions.js`
-
-`$ npx ts-node regular-expressions.ts`
+`$ deno run regular-expressions.ts`
 
 ##### Results:
 

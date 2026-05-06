@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node values.js`
-
-`$ npx ts-node values.ts`
+`$ deno run values.ts`
 
 ##### Results:
 

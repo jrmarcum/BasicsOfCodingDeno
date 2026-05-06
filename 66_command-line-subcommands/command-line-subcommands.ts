@@ -35,11 +35,11 @@ function parseFlags(args: string[], defaults: FlagDefaults): ParseResult {
     return { flags, tail };
 }
 
-const args: string[] = process.argv.slice(2);
+const args: string[] = Deno.args;
 
 if (args.length < 1) {
     console.log("expected 'foo' or 'bar' subcommands");
-    process.exit(1);
+    Deno.exit(1);
 }
 
 const subcmd: string = args[0];
@@ -58,5 +58,5 @@ if (subcmd === "foo") {
     console.log("  tail:", tail);
 } else {
     console.log("expected 'foo' or 'bar' subcommands");
-    process.exit(1);
+    Deno.exit(1);
 }

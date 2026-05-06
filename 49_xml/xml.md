@@ -1,16 +1,8 @@
-#### Node.js has no built-in XML library. This lesson uses the `xml2js` npm package for parsing. XML generation is done with string building. Run `npm install xml2js` once before running the program. Unlike Go's `encoding/xml`, JavaScript has no native struct-to-XML mapping; XML handling requires a third-party package.
+#### Deno has no built-in XML library. This lesson uses the `xml2js` npm package for parsing. XML generation is done with string building. Deno fetches the `npm:xml2js` import automatically on first run — no separate install step is needed. Unlike Go's `encoding/xml`, JavaScript has no native struct-to-XML mapping; XML handling requires a third-party package.
 ___
 ##### Run Command:
 
-`$ npm install xml2js`
-
-___
-
-##### Run Command:
-
-`$ node xml.js`
-
-`$ npx ts-node xml.ts`
+`$ deno run --allow-net xml.ts`
 
 ##### Results:
 

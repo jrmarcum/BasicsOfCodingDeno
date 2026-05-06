@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node time-formatting-parsing.js`
-
-`$ npx ts-node time-formatting-parsing.ts`
+`$ deno run time-formatting-parsing.ts`
 
 ##### Results:
 

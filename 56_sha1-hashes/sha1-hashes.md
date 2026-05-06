@@ -1,10 +1,8 @@
-#### Node.js provides SHA1 hashing via the built-in `crypto` module — no third-party packages required. The hash of the same input string produces identical output in both Go and JavaScript since SHA1 is a deterministic algorithm.
+#### Deno provides SHA1 hashing via `node:crypto` — no third-party packages required. The hash of the same input string produces identical output in both Go and JavaScript since SHA1 is a deterministic algorithm.
 ___
 ##### Run Command:
 
-`$ node sha1-hashes.js`
-
-`$ npx ts-node sha1-hashes.ts`
+`$ deno run sha1-hashes.ts`
 
 ##### Results:
 

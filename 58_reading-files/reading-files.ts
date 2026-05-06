@@ -1,10 +1,11 @@
-const fs = require("fs");
-const path = require("path");
+import * as fs from "node:fs";
+import * as path from "node:path";
+import { Buffer } from "node:buffer";
 
 const tmpFile: string = path.join("tmp", "dat");
 
 const dat: Buffer = fs.readFileSync(tmpFile);
-process.stdout.write(dat.toString());
+Deno.stdout.writeSync(new TextEncoder().encode(dat.toString()));
 
 const fd: number = fs.openSync(tmpFile, "r");
 
@@ -18,7 +19,7 @@ console.log(`${n2} bytes @ 6: ${b2.slice(0, n2).toString()}`);
 
 const b3: Buffer = Buffer.alloc(2);
 const n3: number = fs.readSync(fd, b3, 0, 2, 8);
-process.stdout.write(`${n3} bytes @ 8: ${b3.slice(0, n3).toString()}\n`);
+Deno.stdout.writeSync(new TextEncoder().encode(`${n3} bytes @ 8: ${b3.slice(0, n3).toString()}\n`));
 
 const b4: Buffer = Buffer.alloc(5);
 fs.readSync(fd, b4, 0, 5, 0);

@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node collection-functions.js`
-
-`$ npx ts-node collection-functions.ts`
+`$ deno run collection-functions.ts`
 
 ##### Results:
 

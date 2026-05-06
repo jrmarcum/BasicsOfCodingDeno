@@ -1,4 +1,5 @@
-const { inspect } = require("util");
+import { inspect } from "node:util";
+import { Buffer } from "node:buffer";
 
 interface Point {
     x: number;
@@ -38,4 +39,4 @@ console.log(`|${"foo".padEnd(6)}|${"b".padEnd(6)}|`);
 const s: string = `a ${"string"}`;
 console.log(s);
 
-process.stderr.write(`an ${"error"}\n`);
+Deno.stderr.writeSync(new TextEncoder().encode(`an ${"error"}\n`));

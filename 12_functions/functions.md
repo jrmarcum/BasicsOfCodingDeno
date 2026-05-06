@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node functions.js`
-
-`$ npx ts-node functions.ts`
+`$ deno run functions.ts`
 
 ##### Results:
 

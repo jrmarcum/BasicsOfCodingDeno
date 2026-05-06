@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node random-numbers.js`
-
-`$ npx ts-node random-numbers.ts`
+`$ deno run random-numbers.ts`
 
 ##### Results:
 

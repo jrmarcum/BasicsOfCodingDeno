@@ -1,7 +1,7 @@
-const argsWithProg: string[] = process.argv;
-const argsWithoutProg: string[] = process.argv.slice(2);
+const argsWithProg: string[] = Deno.args;
+const argsWithoutProg: string[] = Deno.args;
 
-const arg: string = process.argv[4];
+const arg: string = Deno.args[2];
 
 console.log(argsWithProg);
 console.log(argsWithoutProg);

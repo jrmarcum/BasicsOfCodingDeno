@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($lessons = @\\(22..39\\) + @\\(68..78\\); $lessons | ForEach-Object { $num = $_.ToString\\(\"D2\"\\); Get-ChildItem \"d:\\\\Programs\\\\_ProgramExamples\\\\Example_Programs\\\\GithubProjects\\\\BasicsOfCodingNode\" -Directory | Where-Object { $_.Name -match \"^$num`_\" } } | Select-Object FullName)"
+    ]
+  }
+}

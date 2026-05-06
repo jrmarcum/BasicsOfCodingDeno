@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node pointers.js`
-
-`$ npx ts-node pointers.ts`
+`$ deno run pointers.ts`
 
 ##### Results:
 

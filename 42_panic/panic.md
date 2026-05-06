@@ -1,10 +1,8 @@
-#### The stack trace lines and file paths will vary with each run and environment. The program prints `5` to stdout, then throws an unhandled error which Node.js reports to stderr before exiting with code 1. JavaScript uses `throw`/`try/catch` as the equivalent of Go's `panic`/`recover`. Go's `recover()` maps to a `try/catch` block in JavaScript.
+#### The stack trace lines and file paths will vary with each run and environment. The program prints `5` to stdout, then throws an unhandled error which Deno reports to stderr before exiting with code 1. JavaScript uses `throw`/`try/catch` as the equivalent of Go's `panic`/`recover`. Go's `recover()` maps to a `try/catch` block in JavaScript.
 ___
 ##### Run Command:
 
-`$ node panic.js`
-
-`$ npx ts-node panic.ts`
+`$ deno run panic.ts`
 
 ##### Results:
 

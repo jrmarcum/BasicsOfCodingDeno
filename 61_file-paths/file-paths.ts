@@ -1,4 +1,4 @@
-const path = require("path");
+import * as path from "node:path";
 
 const p: string = path.join("dir1", "dir2", "filename");
 console.log("p:", p);

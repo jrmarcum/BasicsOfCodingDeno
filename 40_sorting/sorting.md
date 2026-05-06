@@ -1,10 +1,8 @@
-#### JavaScript's `Array.prototype.sort()` sorts strings lexicographically by default. A numeric comparator `(a, b) => a - b` is required for correct integer sorting. Node.js displays arrays with comma-separated quoted elements rather than Go's space-separated unquoted format (e.g., `[ 'a', 'b', 'c' ]` vs `[a b c]`).
+#### JavaScript's `Array.prototype.sort()` sorts strings lexicographically by default. A numeric comparator `(a, b) => a - b` is required for correct integer sorting. Deno displays arrays with comma-separated quoted elements rather than Go's space-separated unquoted format (e.g., `[ 'a', 'b', 'c' ]` vs `[a b c]`).
 ___
 ##### Run Command:
 
-`$ node sorting.js`
-
-`$ npx ts-node sorting.ts`
+`$ deno run sorting.ts`
 
 ##### Results:
 

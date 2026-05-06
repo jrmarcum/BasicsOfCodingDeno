@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node switch.js`
-
-`$ npx ts-node switch.ts`
+`$ deno run switch.ts`
 
 ##### Results:
 

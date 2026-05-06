@@ -2,9 +2,7 @@
 ___
 ##### Run Command:
 
-`$ node defer.js`
-
-`$ npx ts-node defer.ts`
+`$ deno run defer.ts`
 
 ##### Results:
 

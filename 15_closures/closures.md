@@ -1,8 +1,6 @@
 ##### Run Command:
 
-`$ node closures.js`
-
-`$ npx ts-node closures.ts`
+`$ deno run closures.ts`
 
 ##### Results:
 

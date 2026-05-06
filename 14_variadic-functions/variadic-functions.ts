@@ -1,5 +1,5 @@
 function sum(...nums: number[]): void {
-    process.stdout.write("[" + nums.join(" ") + "] ");
+    Deno.stdout.writeSync(new TextEncoder().encode("[" + nums.join(" ") + "] "));
     const total: number = nums.reduce((acc: number, n: number) => acc + n, 0);
     console.log(total);
 }
