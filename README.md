@@ -1,15 +1,38 @@
 # Basics of Coding Deno
+
 ## Preface
+
 What this text is and what it is not: This text is intended to introduce the reader to the basics of the TypeScript programming language (running on Deno) in the sense that they will be able to write minimal types of programs and run the code. It is not intended to go into advanced topics like asynchronous programming, frameworks, or advanced software engineering principles.
 
 The programs are intended to be run in the terminal as that is common to most operating systems. Linux and Mac come preinstalled with a terminal. Windows may or may not have it pre-installed. "Windows Terminal" can be installed from the Microsoft store. Just do a search for it and install it.
+
 ## Installation and Setup of Deno
+
 To set up Deno, navigate to the [Deno](https://deno.com/) website and follow the installation instructions for your operating system. If Deno has been installed properly you will be able to type the following command in the terminal command line and receive the response shown:
 ```
 $ deno --version
 deno x.x.x (release, ...)
 (Note: the version shown here varies with your installed version)
 ```
+
+## Project Structure
+
+```
+BasicsOfCodingDeno/
+├── CLAUDE.md              — canonical AI session context (project notes, conventions, API differences)
+├── LICENSE                — CC0 (Jon Marcum's original contributions)
+├── NOTICE                 — attribution notice for CC BY 3.0 derived content
+├── README.md              — this file
+├── upstream/
+│   └── basicsofcodinggo/  — git submodule: BasicsOfCodingGo reference implementation
+└── ##_topic-name/
+    ├── topic-name.ts      — TypeScript source (run with deno run)
+    └── topic-name.md      — run command and expected output
+```
+
+Lesson folders are numbered with a two-digit prefix (e.g., `01_hello-world`),
+mirroring the Go reference exactly: same lesson numbers, same folder names.
+
 ## How to Run Examples
 
 Each lesson folder contains a `.ts` (TypeScript) source file and a `.md` file showing the run command and expected output. Deno runs TypeScript natively — no compilation or config files needed.
